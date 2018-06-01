@@ -10,13 +10,12 @@ public class ParkingBoy extends Party{
 
     public ParkingLot getPreferredParkingLot() {
         List<ParkingLot> parkingLots = ParkingSystem.getParkingSystem().getParkingLots();
-        ParkingLot preferredParkingLot = parkingLots.get(0);
         for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.getNumberOfEmptyLot() > preferredParkingLot.getNumberOfEmptyLot()) {
-                preferredParkingLot = parkingLot;
+            if (parkingLot.getNumberOfEmptyLot() > 0) {
+                return parkingLot;
             }
         }
-        return preferredParkingLot;
+        return null;
     }
 
     public Car pick(int carId) {

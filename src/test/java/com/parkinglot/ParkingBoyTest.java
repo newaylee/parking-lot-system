@@ -17,9 +17,9 @@ public class ParkingBoyTest {
     }
 
     @Test
-    public void getPreferredParkingLot() {
+    public void should_get_first_available_parking_lot() {
         ParkingBoy parkingBoy = new ParkingBoy(1);
-        Assert.assertEquals(2, parkingBoy.getPreferredParkingLot().getId());
+        Assert.assertEquals(1, parkingBoy.getPreferredParkingLot().getId());
     }
 
     @Test
