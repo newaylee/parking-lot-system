@@ -1,9 +1,14 @@
 package com.parkinglot;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class ParkingSystem {
     private static ParkingSystem parkingSystemSingleton = null;
+    private ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+
+
 
     public static ParkingSystem getParkingSystem() {
         if (parkingSystemSingleton == null) {
@@ -15,12 +20,14 @@ public class ParkingSystem {
 
     protected ParkingSystem() {}
 
-    ArrayList<ParkingLot> parkingLots = new ArrayList<>();
-
     public void addParkingLot(ParkingLot parkingLot) {
         if (!parkingLots.contains(parkingLot)) {
             parkingLots.add(parkingLot);
         }
+    }
+
+    public List<ParkingLot> getParkingLots() {
+        return Collections.unmodifiableList(parkingLots);
     }
 
     public ParkingLot getParkingLotById(int parkingLotId){
