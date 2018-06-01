@@ -7,6 +7,6 @@ public class LotTest {
 
     @Test
     public void getNumberOfParkingLot() {
-        Assert.assertEquals(0,new Lot().getNumberOfParkingLot());
+        Assert.assertEquals(0,new ParkingLot(1).getNumberOfEmptyLot());
     }
 }
