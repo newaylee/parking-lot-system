@@ -3,7 +3,7 @@ package com.parkinglot;
 import java.util.ArrayList;
 
 public class CarPark {
-    ArrayList<ParkingLot> ParkingLots = new ArrayList<>();
+    ArrayList<Lot> lots = new ArrayList<>();
 
 
     public int getNumberOfParkingLot(){

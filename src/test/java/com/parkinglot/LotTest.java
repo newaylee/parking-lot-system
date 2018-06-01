@@ -3,12 +3,10 @@ package com.parkinglot;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class ParkingLotTest {
+public class LotTest {
 
     @Test
     public void getNumberOfParkingLot() {
-        Assert.assertEquals(0,new ParkingLot().getNumberOfParkingLot());
+        Assert.assertEquals(0,new Lot().getNumberOfParkingLot());
     }
 }
