@@ -1,6 +1,6 @@
 package com.parkinglot;
 
-public class Lot extends Party{
+public class Lot extends Party {
 
     Car car = null;
 
@@ -15,7 +15,16 @@ public class Lot extends Party{
         } else {
             return false;
         }
+    }
 
+    public Car getCar() {
+        return car;
+    }
+
+    public Car pickCar() {
+        Car car = getCar();
+        this.car = null;
+        return car;
     }
 
     public Lot(int id) {

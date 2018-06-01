@@ -14,11 +14,11 @@ public class ParkingLotTest {
 
     @Test
     public void should_get_correct_num_of_empty_lot() {
-        final int CAPICITY = 5;
-        ParkingLot parkingLot = new ParkingLot(1, CAPICITY);
-        Assert.assertEquals(CAPICITY, parkingLot.getNumberOfEmptyLot());
+        final int CAPACITY = 5;
+        ParkingLot parkingLot = new ParkingLot(1, CAPACITY);
+        Assert.assertEquals(CAPACITY, parkingLot.getNumberOfEmptyLot());
         parkingLot.park(new Car(1));
-        Assert.assertEquals(CAPICITY - 1, parkingLot.getNumberOfEmptyLot());
+        Assert.assertEquals(CAPACITY - 1, parkingLot.getNumberOfEmptyLot());
 
     }
 

@@ -21,4 +21,13 @@ public class ParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(1);
         Assert.assertEquals(2, parkingBoy.getPreferredParkingLot().getId());
     }
+
+    @Test
+    public void should_parking_boy_park_car_successfully() {
+        ParkingBoy parkingBoy = new ParkingBoy(1);
+        Car car = new Car(123);
+        parkingBoy.park(car);
+        ParkingSystem parkingSystem = ParkingSystem.getParkingSystem();
+        Assert.assertNotNull(parkingSystem.findCarParkedParkingLot(123));
+    }
 }

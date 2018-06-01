@@ -37,4 +37,19 @@ public class ParkingLot extends Party {
     public int getNumberOfEmptyLot() {
         return (int) lots.stream().filter(p -> p.isEmpty()).count();
     }
+
+    public boolean isCarInThisParkingLot(int carId) {
+        if (findCarParkedLot(carId) != null) {
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public Lot findCarParkedLot(int carId) {
+        return lots.stream()
+                .filter(p -> !p.isEmpty() && p.getCar().getId() == carId)
+                .findAny()
+                .orElse(null);
+    }
 }

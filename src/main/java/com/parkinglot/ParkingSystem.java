@@ -36,4 +36,12 @@ public class ParkingSystem {
                 .findAny()
                 .orElse(null);
     }
+
+    public ParkingLot findCarParkedParkingLot(int carId) {
+        return parkingLots.stream()
+                .filter(p -> p.isCarInThisParkingLot(carId))
+                .findAny()
+                .orElse(null);
+    }
+
 }
