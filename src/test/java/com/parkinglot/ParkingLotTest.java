@@ -9,7 +9,7 @@ public class ParkingLotTest {
 
     @Test
     public void getNumberOfParkingLot() {
-        Assert.assertEquals(0,new ParkingLot().getNumberOfParkingLot());
+        Assert.assertEquals(0,new ParkingLot(1).getNumberOfEmptyLot());
     }
 
     @Test
