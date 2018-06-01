@@ -8,14 +8,36 @@ import static org.junit.Assert.*;
 public class ParkingLotTest {
 
     @Test
-    public void getNumberOfParkingLot() {
-        Assert.assertEquals(1,new ParkingLot(1, 1).PARKING_CAPACITY);
+    public void get_parking_lot_capacity() {
+        Assert.assertEquals(1, new ParkingLot(1, 1).PARKING_CAPACITY);
+    }
+
+    @Test
+    public void should_return_true_when_park_is_available() {
+        final int CAPACITY = 3;
+        ParkingLot parkingLot = new ParkingLot(1, CAPACITY);
+        for (int i = 0; i < CAPACITY; i++) {
+            Assert.assertEquals(true, parkingLot.park(new Car(i)));
+        }
+    }
+
+    @Test
+    public void should_return_false_when_park_is_full() {
+        final int CAPACITY = 3;
+        ParkingLot parkingLot = new ParkingLot(1, CAPACITY);
+        for (int i = 0; i < CAPACITY; i++) {
+            parkingLot.park(new Car(i));
+        }
+
+        Assert.assertEquals(false, parkingLot.park(new Car(CAPACITY + 1)));
+
     }
 
     @Test
     public void should_get_boy_id() {
         ParkingBoy boy = new ParkingBoy(9);
-        Assert.assertEquals(9,boy.getId());
+        Assert.assertEquals(9, boy.getId());
     }
+
 
 }
