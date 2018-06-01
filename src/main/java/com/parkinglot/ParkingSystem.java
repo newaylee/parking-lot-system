@@ -3,6 +3,18 @@ package com.parkinglot;
 import java.util.ArrayList;
 
 public class ParkingSystem {
+    private static ParkingSystem parkingSystemSingleton = null;
+
+    public static ParkingSystem getParkingSystem() {
+        if (parkingSystemSingleton == null) {
+            parkingSystemSingleton = new ParkingSystem();
+        }
+
+        return parkingSystemSingleton;
+    }
+
+    protected ParkingSystem() {}
+
     ArrayList<ParkingLot> parkingLots = new ArrayList<>();
 
     public void addParkingLot(ParkingLot parkingLot) {
