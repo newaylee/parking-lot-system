@@ -41,8 +41,7 @@ public class ParkingLot extends Party {
     public boolean isCarInThisParkingLot(int carId) {
         if (findCarParkedLot(carId) != null) {
             return true;
-        }
-        else
+        } else
             return false;
     }
 
@@ -51,5 +50,13 @@ public class ParkingLot extends Party {
                 .filter(p -> !p.isEmpty() && p.getCar().getId() == carId)
                 .findAny()
                 .orElse(null);
+    }
+
+    public Car pick(int carId) {
+        Lot lot = findCarParkedLot(carId);
+        if (lot != null) {
+            return lot.pickCar();
+        }
+        return null;
     }
 }

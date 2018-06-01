@@ -19,6 +19,14 @@ public class ParkingBoy extends Party{
         return preferredParkingLot;
     }
 
+    public Car pick(int carId) {
+        ParkingLot parkingLot = ParkingSystem.getParkingSystem().findCarParkedParkingLot(carId);
+        if ( parkingLot != null ) {
+            return parkingLot.pick(carId);
+        }
+        return null;
+    }
+
     public boolean park(Car car) {
         return getPreferredParkingLot().park(car);
     }

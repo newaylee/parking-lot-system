@@ -30,4 +30,15 @@ public class ParkingBoyTest {
         ParkingSystem parkingSystem = ParkingSystem.getParkingSystem();
         Assert.assertNotNull(parkingSystem.findCarParkedParkingLot(123));
     }
+
+    @Test
+    public void should_parking_boy_pick_car_successfully() {
+        ParkingBoy parkingBoy = new ParkingBoy(1);
+        Car car = new Car(123);
+        parkingBoy.park(car);
+        ParkingSystem parkingSystem = ParkingSystem.getParkingSystem();
+
+        Assert.assertNotNull(parkingSystem.findCarParkedParkingLot(123));
+        Assert.assertNotNull(parkingBoy.pick(123));
+    }
 }
