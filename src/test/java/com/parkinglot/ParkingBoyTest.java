@@ -72,4 +72,16 @@ public class ParkingBoyTest {
         Assert.assertEquals(3, parkingBoy.getPreferredParkingLot().getId());
 
     }
+
+    @Test
+    public void should_parking_manager_assign_parking_boy_successfully() {
+        ParkingSystem parkingSystem = ParkingSystem.getParkingSystem();
+        Car car = new Car(111);
+        ParkingBoy manager = new ParkingManager(999);
+        ParkingBoy boy = new ParkingBoy(1);
+        ((ParkingManager) manager).addSubordinate(boy);
+        ((ParkingManager) manager).park(car, 1);
+        Assert.assertEquals(3, parkingSystem.getParkingLotById(1).getNumberOfEmptyLot());
+
+    }
 }
