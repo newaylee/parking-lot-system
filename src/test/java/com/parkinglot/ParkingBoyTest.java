@@ -11,9 +11,24 @@ public class ParkingBoyTest {
     @Before
     public void setup_parkingSystem() {
         ParkingSystem parkingSystem = ParkingSystem.getParkingSystem();
-        parkingSystem.addParkingLot(new ParkingLot(1, 5));
-        parkingSystem.addParkingLot(new ParkingLot(2, 10));
-        parkingSystem.addParkingLot(new ParkingLot(3, 6));
+        ParkingLot parkingLot1 = new ParkingLot(1, 6);
+        ParkingLot parkingLot2 = new ParkingLot(2, 10);
+        ParkingLot parkingLot3 = new ParkingLot(3, 5);
+
+        parkingSystem.addParkingLot(parkingLot1);
+        parkingSystem.addParkingLot(parkingLot2);
+        parkingSystem.addParkingLot(parkingLot3);
+
+        int carIdSeqNum = 10000;
+
+        parkingLot1.park(new Car(carIdSeqNum++));
+        parkingLot1.park(new Car(carIdSeqNum++));
+        parkingLot2.park(new Car(carIdSeqNum++));
+        parkingLot2.park(new Car(carIdSeqNum++));
+        parkingLot2.park(new Car(carIdSeqNum++));
+        parkingLot2.park(new Car(carIdSeqNum++));
+        parkingLot2.park(new Car(carIdSeqNum++));
+        parkingLot3.park(new Car(carIdSeqNum++));
     }
 
     @Test
@@ -40,5 +55,21 @@ public class ParkingBoyTest {
 
         Assert.assertNotNull(parkingSystem.findCarParkedParkingLot(123));
         Assert.assertNotNull(parkingBoy.pick(123));
+    }
+
+
+
+    @Test
+    public void should_smart_get_most_available_parking_lot() {
+        ParkingBoy parkingBoy = new SmartParkingBoy(1);
+        Assert.assertEquals(2, parkingBoy.getPreferredParkingLot().getId());
+    }
+
+
+    @Test
+    public void should_super_get_most_available_parking_lot() {
+        ParkingBoy parkingBoy = new SuperParkingBoy(1);
+        Assert.assertEquals(3, parkingBoy.getPreferredParkingLot().getId());
+
     }
 }
