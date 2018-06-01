@@ -35,6 +35,6 @@ public class ParkingLot extends Party {
     }
 
     public int getNumberOfEmptyLot() {
-        return 0;
+        return (int) lots.stream().filter(p -> p.isEmpty()).count();
     }
 }
